@@ -10,5 +10,11 @@ years_of_data = input("Please enter how many years of data you want: ")
 balance_sheet = requests.get(f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{company_name}?Limit=[{years_of_data}&apikey={APIKey}")
 
 #getting the json 
-print(balance_sheet.json())
+data = balance_sheet.json()
 
+#getting specific data (testing)
+total_current_assets = data[0]['totalCurrentAssets']
+calendar_year = data[0]['calendarYear']
+currency = data[0]['reportedCurrency']
+
+print(f"TOTAL CURRENT ASSETS: {company_name} \nTotal current assets for {calendar_year}: ${total_current_assets} {currency}")
