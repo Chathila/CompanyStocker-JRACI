@@ -50,18 +50,22 @@ def balancePull_final(ticker, years_of_data):
     for i in list(range(years_of_data)):
         x = (balancePull(ticker, i+1))
         date_sorted[results[i]['date']] = x
-        year = list(date_sorted.keys())        
-        sections = list(date_sorted.values())[i]
-
-
-
-        table = [year, sections]
-        table = list(map(list, zip(*table)))
-
-        #print(tabulate.tabulate(table, headers = ['YEAR', 'INFO']))
-        print(sections)
-
-print(balancePull_final('AAPL', 3))
+    
+    fout = open('text.txt', 'w')
+    for entries in date_sorted:
+        fout.write("\n")
+        fout.write(entries + "\n")
+        for i in date_sorted[entries]:
+            fout.write(i + ': ' + str(date_sorted[entries][i]) + '\n')
+    fout.close()
+    fin = open('text.txt')
+    li = fin.readlines()
+    
+    s = ''
+    for i in li:
+        s += i
+    
+    return s
 
 
 def cashflowPull(ticker, years_of_data):
@@ -93,14 +97,27 @@ def cashflowPull(ticker, years_of_data):
     cashflow_dict = {proper_keys[cashflow_keys.index(key)]: value for key, value in cashflow_dict.items()}
     return cashflow_dict
 
+
 def cashflowPull_final(ticker, years_of_data):
     url = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
     results = requests.get(url).json()
     date_sorted={}
     for i in list(range(years_of_data)):
-       x = (cashflowPull(ticker, i+1))
-       date_sorted[results[i]['date']] = x
-    return date_sorted
+        x = (cashflowPull(ticker, i+1))
+        date_sorted[results[i]['date']] = x
+
+        year = list(date_sorted.keys())      
+        sections = list(date_sorted.values())
+
+        for entries in sections:
+            data_headers = list(entries.keys())
+            data = list(entries.values())
+
+        table = [data_headers, data]
+        table = list(map(list, zip(*table)))
+
+        print(tabulate.tabulate(table))
+
 
 def incomePull(ticker, years_of_data):
     url = f"https://financialmodelingprep.com/api/v3/income-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
@@ -121,14 +138,26 @@ def incomePull(ticker, years_of_data):
     income_dict = {proper_keys[income_keys.index(key)]: value for key, value in income_dict.items()}
     return income_dict
 
+
 def incomePull_final(ticker, years_of_data):
     url = f"https://financialmodelingprep.com/api/v3/income-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
     results = requests.get(url).json()
     date_sorted={}
     for i in list(range(years_of_data)):
-       x = (incomePull(ticker, i+1))
-       date_sorted[results[i]['date']] = x
-    return date_sorted
+        x = (incomePull(ticker, i+1))
+        date_sorted[results[i]['date']] = x
+        year = list(date_sorted.keys())      
+        sections = list(date_sorted.values())
+
+        for entries in sections:
+            data_headers = list(entries.keys())
+            data = list(entries.values())
+
+        table = [data_headers, data]
+        table = list(map(list, zip(*table)))
+
+        print(tabulate.tabulate(table))
+
 
 '''
 def growthPull(type, ticker):
