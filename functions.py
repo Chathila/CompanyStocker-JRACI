@@ -27,14 +27,12 @@ def balancePull(ticker, period, years_of_data):
             'totalNonCurrentAssets', 'totalAssets', 'accountPayables', 'otherCurrentLiabilities', 'deferredRevenue',
             'longTermDebt', 'totalCurrentLiabilities', 'otherNonCurrentLiabilities', 'totalNonCurrentLiabilities', 'totalLiabilities',
             'totalStockholdersEquity', 'totalLiabilitiesAndStockholdersEquity']
-    balance_dict = []
+    balance_dict = {}
     
-    x=0
     for x in results:
         for key in x:
             if key in balance_keys:
-                balance_dict[key]=results[x][key]
-                x += 1
+                balance_dict[key] = results[0][key]
     return balance_dict
 
 print(balancePull(ticker, "annual", 2))
