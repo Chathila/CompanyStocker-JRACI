@@ -195,7 +195,7 @@ NameLabel.place(x=150, y=20)
 #Creating search bar 
 NameFrame = CTkFrame(root, width = 400, height = 100)
 NameFrame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-SearchEntry = ctk.CTkEntry(NameFrame, placeholder_text="Enter Company Ticket Symbol", width=200)
+SearchEntry = ctk.CTkEntry(NameFrame, placeholder_text="Enter Company Ticker Symbol", width=200)
 SearchEntry.pack(side="top", padx=40, pady=50)
 SearchEntry.place(x=100, rely=0.2)
 

@@ -1,81 +1,81 @@
 
-2022-09-24
-Net Income: 99803000000
-Depreciation and Amortization: 11104000000
-Deferred Income Tax: 895000000
-Stock-Based Compensation: 9038000000
-Change in Working Capital: 1200000000
-Accounts Receivables: -1823000000
-Inventory: 1484000000
-Other Working Capital: 478000000
-Other Non Cash Items: 111000000
-Net Cash Provided by Operating Activities: 122151000000
-Investments in Property Plant and Equipment: -10708000000
-Acquisitions Net: -306000000
-Purchases of Investments: -76923000000
-Other Investing Activities: -1780000000
-Net Cash Used for Investing Activities: -22354000000
-Debt Repayment: -9543000000
-Common Stock Repurchased: -89402000000
-Dividends Paid: -14841000000
-Net Cash Used Provided by Financing Activities: -110749000000
-Net Change in Cash: -10952000000
-Cash At End of Period: 24977000000
-Cash at Beginning of Period: 35929000000
-Operating Cash Flow: 122151000000
-Capital Expenditure: -10708000000
-Free Cash Flow: 111443000000
+2021-12-31
+Net Income: 5644000000
+Depreciation and Amortization: 2911000000
+Deferred Income Tax: 0.0
+Stock-Based Compensation: 2121000000
+Change in Working Capital: 518000000
+Accounts Receivables: -130000000
+Inventory: -1709000000
+Other Working Capital: 979000000
+Other Non Cash Items: 303000000
+Net Cash Provided by Operating Activities: 11497000000
+Investments in Property Plant and Equipment: -6514000000
+Acquisitions Net: 0.0
+Purchases of Investments: -132000000
+Other Investing Activities: -1222000000
+Net Cash Used for Investing Activities: -7868000000
+Debt Repayment: -14615000000
+Common Stock Repurchased: 0.0
+Dividends Paid: 0.0
+Net Cash Used Provided by Financing Activities: -5203000000
+Net Change in Cash: -1757000000
+Cash At End of Period: 18144000000
+Cash at Beginning of Period: 19901000000
+Operating Cash Flow: 11497000000
+Capital Expenditure: -8014000000
+Free Cash Flow: 3483000000
 
-2021-09-25
-Net Income: 94680000000
-Depreciation and Amortization: 11284000000
-Deferred Income Tax: -4774000000
-Stock-Based Compensation: 7906000000
-Change in Working Capital: -4911000000
-Accounts Receivables: -10125000000
-Inventory: -2642000000
-Other Working Capital: 1676000000
-Other Non Cash Items: -147000000
-Net Cash Provided by Operating Activities: 104038000000
-Investments in Property Plant and Equipment: -11085000000
-Acquisitions Net: -33000000
-Purchases of Investments: -109689000000
-Other Investing Activities: -608000000
-Net Cash Used for Investing Activities: -14545000000
-Debt Repayment: -8750000000
-Common Stock Repurchased: -85971000000
-Dividends Paid: -14467000000
-Net Cash Used Provided by Financing Activities: -93353000000
-Net Change in Cash: -3860000000
-Cash At End of Period: 35929000000
-Cash at Beginning of Period: 39789000000
-Operating Cash Flow: 104038000000
-Capital Expenditure: -11085000000
-Free Cash Flow: 92953000000
+2020-12-31
+Net Income: 690000000
+Depreciation and Amortization: 2322000000
+Deferred Income Tax: 0.0
+Stock-Based Compensation: 1734000000
+Change in Working Capital: 184000000
+Accounts Receivables: -652000000
+Inventory: -422000000
+Other Working Capital: 328000000
+Other Non Cash Items: 1013000000
+Net Cash Provided by Operating Activities: 5943000000
+Investments in Property Plant and Equipment: -3232000000
+Acquisitions Net: -13000000
+Purchases of Investments: 0.0
+Other Investing Activities: 113000000
+Net Cash Used for Investing Activities: -3132000000
+Debt Repayment: -12201000000
+Common Stock Repurchased: 0.0
+Dividends Paid: 0.0
+Net Cash Used Provided by Financing Activities: 9973000000
+Net Change in Cash: 13118000000
+Cash At End of Period: 19901000000
+Cash at Beginning of Period: 6783000000
+Operating Cash Flow: 5943000000
+Capital Expenditure: -3242000000
+Free Cash Flow: 2701000000
 
-2020-09-26
-Net Income: 57411000000
-Depreciation and Amortization: 11056000000
-Deferred Income Tax: -215000000
-Stock-Based Compensation: 6829000000
-Change in Working Capital: 5690000000
-Accounts Receivables: 6917000000
-Inventory: -127000000
-Other Working Capital: 2081000000
-Other Non Cash Items: -97000000
-Net Cash Provided by Operating Activities: 80674000000
-Investments in Property Plant and Equipment: -7309000000
-Acquisitions Net: -1524000000
-Purchases of Investments: -115148000000
-Other Investing Activities: -791000000
-Net Cash Used for Investing Activities: -4289000000
-Debt Repayment: -12629000000
-Common Stock Repurchased: -72358000000
-Dividends Paid: -14081000000
-Net Cash Used Provided by Financing Activities: -86820000000
-Net Change in Cash: -10435000000
-Cash At End of Period: 39789000000
-Cash at Beginning of Period: 50224000000
-Operating Cash Flow: 80674000000
-Capital Expenditure: -7309000000
-Free Cash Flow: 73365000000
+2019-12-31
+Net Income: -862000000
+Depreciation and Amortization: 2154000000
+Deferred Income Tax: 0.0
+Stock-Based Compensation: 898000000
+Change in Working Capital: -349000000
+Accounts Receivables: -367000000
+Inventory: -429000000
+Other Working Capital: 743000000
+Other Non Cash Items: 564000000
+Net Cash Provided by Operating Activities: 2405000000
+Investments in Property Plant and Equipment: -1437000000
+Acquisitions Net: -45000000
+Purchases of Investments: 0.0
+Other Investing Activities: 46000000
+Net Cash Used for Investing Activities: -1436000000
+Debt Repayment: -9871000000
+Common Stock Repurchased: 0.0
+Dividends Paid: 0.0
+Net Cash Used Provided by Financing Activities: 1529000000
+Net Change in Cash: 2506000000
+Cash At End of Period: 6783000000
+Cash at Beginning of Period: 4277000000
+Operating Cash Flow: 2405000000
+Capital Expenditure: -1437000000
+Free Cash Flow: 968000000
