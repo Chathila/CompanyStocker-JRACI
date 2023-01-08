@@ -2,8 +2,7 @@ import requests
 import json
 # 662675887f17041bd4ed6406d2fb2ff8
 
-ticker = "AAPL"
-period = 'annual'
+ticker = "TSLA"
 
 
 def stockPull(ticker):
@@ -19,8 +18,8 @@ def getfirstkey(results, index):
             print(key)
 
 
-def balancePull(ticker, period, years_of_data):
-    url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
+def balancePull(ticker, years_of_data):
+    url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=662675887f17041bd4ed6406d2fb2ff8"
     results = requests.get(url).json()
     balance_keys = ['cashAndCashEquivalents', 'shortTermInvestments', 'netReceivables', 'inventory', 
             'otherCurrentAssets', 'totalCurrentAssets', 'propertyPlantEquipmentNet', 'otherNonCurrentAssets',
@@ -41,10 +40,11 @@ def balancePull(ticker, period, years_of_data):
     
     balance_dict = {proper_keys[balance_keys.index(key)]: value for key, value in balance_dict.items()}
     return balance_dict
-    
 
-def cashflowPull(ticker, period, years_of_data):
-    url = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
+print(balancePull(ticker, 1))
+
+def cashflowPull(ticker, years_of_data):
+    url = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=662675887f17041bd4ed6406d2fb2ff8"
     results = requests.get(url).json()
     cashflow_keys= ['netIncome', 'depreciationAndAmortization', 'stockBasedCompensation', 'deferredIncomeTax',
             'changeInWorkingCapital', 'accountsReceivables', 'inventory', 'otherWorkingCapital', 'accountsPayable',
@@ -70,8 +70,8 @@ def cashflowPull(ticker, period, years_of_data):
     cashflow_dict = {proper_keys[cashflow_keys.index(key)]: value for key, value in cashflow_dict.items()}
     return cashflow_dict
 
-def incomePull(ticker, period, years_of_data):
-    url = f"https://financialmodelingprep.com/api/v3/income-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
+def incomePull(ticker, years_of_data):
+    url = f"https://financialmodelingprep.com/api/v3/income-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=662675887f17041bd4ed6406d2fb2ff8"
     results = requests.get(url).json()
     income_keys = ['revenue', 'costOfRevenue', 'grossProfit', 'researchAndDevelopmentExpenses', 'operatingExpenses', 'costAndExpenses', 
             'interestIncome', 'interestExpense', 'operatingIncome', 'incomeBeforeTax', 'incomeTaxExpense', 'netIncome',
