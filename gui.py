@@ -59,12 +59,12 @@ class MainPage(ctk.CTk):
         self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
         self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Window 2")
         self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Window 3")
-        self.Price = ButtonWindow(self, "Price", "Window 4")
+        self.IncomeStatements = ButtonWindow(self, "Income Statements", "Window 4")
 
         self.StockPrice.pack(side='bottom', padx=20, pady=20)
         self.BalanceSheet.pack(side='bottom', padx=20, pady=20)
         self.CashFlow.pack(side='bottom', padx=20, pady=20)
-        self.Price.pack(side='bottom', padx=20, pady=20)
+        self.IncomeStatements.pack(side='bottom', padx=20, pady=20)
 
 class ButtonWindow:
     def __init__(self, master, button_text, window_title):
@@ -83,6 +83,12 @@ class ButtonWindow:
     def create_toplevel(self):
         if self.button_text == "StockPrice":
             window = StockPriceWindow(self.master, search_term)
+        elif self.button_text == "Balance Sheet":
+            window = BalanceSheetWindow(self.master, search_term)
+        elif self.button_text == "Cash Flow Statements":
+            window = CashFlowWindow(self.master, search_term)
+        elif self.button_text == "Income Statements":
+            window = IncomeStatementWindow(self.master, search_term)
         else:
             window = ctk.CTkToplevel(self.master)
             window.title(self.window_title)
@@ -95,20 +101,44 @@ class ButtonWindow:
             window.destroy()
 
         GoBackButton = ctk.CTkButton(master=window, text="Go Back", command=go_back_to_old_window)
-        GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+        GoBackButton.place(relx=0.5, rely=0.9, anchor=tkinter.CENTER)
         GoBackButton.configure(width=100, height=50)
-
 
 class StockPriceWindow(tkinter.Toplevel):
     def __init__(self, master, search_term):
         super().__init__(master)
         self.search_term = search_term
-        self.search_term_label = ctk.CTkLabel(self, text=f"Analyzing...", font=('arial', 30))
+        self.search_term_label = ctk.CTkLabel(self, text=f"Stock Price", font=('arial', 30))
         self.search_term_label.place(x=15, y=10)
+        self.geometry("500x800")
+        
+
+class BalanceSheetWindow(tkinter.Toplevel):
+    def __init__(self, master, search_term):
+        super().__init__(master)
+        self.search_term = search_term
+        self.search_term_label = ctk.CTkLabel(self, text=f"Balance Sheet", font=('arial', 30))
+        self.search_term_label.place(x=15, y=10)
+        self.geometry("500x800")
 
 
+class CashFlowWindow(tkinter.Toplevel):
+    def __init__(self, master, search_term):
+        super().__init__(master)
+        self.search_term = search_term
+        self.search_term_label = ctk.CTkLabel(self, text=f"Cash Flow Statements", font=('arial', 30))
+        self.search_term_label.place(x=15, y=10)
+        self.geometry("500x800")
 
 
+class IncomeStatementWindow(tkinter.Toplevel):
+    def __init__(self, master, search_term):
+        super().__init__(master)
+        self.search_term = search_term
+        self.search_term_label = ctk.CTkLabel(self, text=f"Income Statements", font=('arial', 30))
+        self.search_term_label.place(x=15, y=10)
+        self.geometry("500x800")
+        
 
 root = ctk.CTk()
 root.geometry("600x300")
