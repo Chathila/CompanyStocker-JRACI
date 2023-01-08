@@ -5,29 +5,20 @@ from customtkinter import CTkFrame
 from functions import stockSearch, profilePull
 
 def split_into_lines(long_string, max_words_per_line):
-    # Split the long string into a list of words
     words = long_string.split()
-
-    # Initialize an empty list to store the lines
     lines = []
-
-    # Initialize a temporary list to store the words for the current line
     current_line = []
-
-    # Iterate through the list of words
+    
     for word in words:
-        # If the current line is already at the maximum number of words, add it to the list of lines and start a new line
+       
         if len(current_line) == max_words_per_line:
             lines.append(current_line)
             current_line = []
 
-        # Add the word to the current line
         current_line.append(word)
 
-    # Add the final line to the list of lines
     lines.append(current_line)
 
-    # Join the lines into a single string and return it
     return '\n'.join([' '.join(line) for line in lines])
 search_term = ""
 
