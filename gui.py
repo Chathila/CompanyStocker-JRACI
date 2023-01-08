@@ -1,6 +1,6 @@
 '''
 main window with custom tkinter
-'''
+
 
 import tkinter
 import customtkinter as ctk
@@ -28,8 +28,9 @@ def open_new_window():
         new_window.destroy()
 
     GoBackButton = ctk.CTkButton(master=new_window, text="Go Back", command=go_back_to_old_window)
-    GoBackButton.configure(width=200, height=50)
-    GoBackButton.pack()
+    GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+    GoBackButton.configure(width=100, height=50)
+
 
     # Display the new window
     new_window.mainloop()
@@ -40,3 +41,40 @@ OpenNewWindowButton.configure(width=200, height=50)
 OpenNewWindowButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
 root.mainloop()
+'''
+
+import tkinter
+import customtkinter as ctk
+
+class ExampleApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+
+        self.geometry("500x400")
+
+        self.button = ctk.CTkButton(self, text="Create Toplevel", command=self.create_toplevel)
+        self.button.pack(side="top", padx=40, pady=40)
+
+    def create_toplevel(self):
+        window = ctk.CTkToplevel(self)
+        window.geometry("400x200")
+
+        # create label on CTkToplevel window
+        label = ctk.CTkLabel(window)
+        label.pack(side="top", fill="both", expand=True, padx=40, pady=40)
+
+        def go_back_to_old_window():
+            # Reopen the old window
+            self.update()
+            self.deiconify()
+
+            # Close the new window
+            window.destroy()
+
+        GoBackButton = ctk.CTkButton(master=window, text="Go Back", command=go_back_to_old_window)
+        GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+        GoBackButton.configure(width=100, height=50)
+
+
+app = ExampleApp()
+app.mainloop()
