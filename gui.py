@@ -3,19 +3,31 @@ main window with custom tkinter
 '''
 
 import tkinter
+from tkinter import *
 import customtkinter as ctk
+from customtkinter import CTkToplevel
 
-ctk.set_appearance_mode("System")  # Modes: system (default), light, dark
-ctk.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
+ctk.set_appearance_mode("System") 
+ctk.set_default_color_theme("dark-blue")  
 
-root = ctk.CTk()  # create CTk window like you do with the Tk window
-root.geometry("400x240")
+#creating ctkinter window
+root = ctk.CTk() 
+root.geometry("500x700")
+root.title("Stock App")
+
 
 def button_function():
-    print("button pressed")
+    # Create a new window
+    new_window = ctk.CTk()
+    new_window.geometry("500x700")
+    new_window.title("New Window")
+    root.destroy()
+    # Display the new window
+    new_window.mainloop()
 
 # Use CTkButton instead of tkinter Button
-button = ctk.CTkButton(master=root, text="Check Stock Prices", command=button_function)
-button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+StockPriceButton = ctk.CTkButton(master=root, text="Check Stock Prices", command=button_function)
+StockPriceButton.configure(width=200, height=50)
+StockPriceButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
 root.mainloop()
