@@ -85,7 +85,6 @@ def incomePull(ticker, period, years_of_data):
     income_dict = {proper_keys[income_keys.index(key)]: value for key, value in income_dict.items()}
     return income_dict
 
-print(incomePull(ticker, period, 1))
 
 def growthPull(type, ticker):
     url = f"https://financialmodelingprep.com/api/v3/{type}-statement-growth/{ticker}?apikey=662675887f17041bd4ed6406d2fb2ff8"
@@ -106,14 +105,14 @@ def historicemployeePull(ticker):
     return employeecount
 
 
-def stockSearch(ticker, limit, exchange):
-    url = f"https://financialmodelingprep.com/api/v3/search-ticker?query={ticker}&limit={limit}&exchange={exchange}&apikey=662675887f17041bd4ed6406d2fb2ff8"
+def stockSearch(ticker):
+    url = f"https://financialmodelingprep.com/api/v3/search-ticker?query={ticker}&limit=1&exchange=NASDAQ&apikey=662675887f17041bd4ed6406d2fb2ff8"
     results = requests.get(url).json()
     symbol = results[0]['symbol']
     name = results[0]['name']
     final = symbol + ': ' + name
     return final
-    
+   
 
 def profilePull(ticker):
     url = f"https://financialmodelingprep.com/api/v3/profile/{ticker}?apikey=662675887f17041bd4ed6406d2fb2ff8"
