@@ -17,22 +17,22 @@ class MainPage(ctk.CTk):
         super().__init__()
         self.search_term = search_term
 
-        self.search_term_label = ctk.CTkLabel(self, text=f"Search term: {self.search_term}")
+        self.search_term_label = ctk.CTkLabel(self, text=f"What do you want to know about the ticker {self.search_term}?", font=('arial', 30))
         self.search_term_label.place(x=10, y=10)
+        #self.search_term.configure(font=('Arial',40))
 
-        self.geometry("600x800")
+        self.geometry("800x400")
+
+
         self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
-        self.StockPrice.pack(side="top", padx=40, pady=40)
-
-        # Create a second button that opens a new window
         self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Window 2")
-        self.BalanceSheet.pack(side="top", padx=40, pady=40)
-
         self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Window 3")
-        self.CashFlow.pack(side="top", padx=40, pady=40)
-
         self.Price = ButtonWindow(self, "Price", "Window 4")
-        self.Price.pack(side="top", padx=40, pady=40)
+
+        self.StockPrice.pack(side='bottom', padx=20, pady=10)
+        self.BalanceSheet.pack(side='bottom', padx=20, pady=10)
+        self.CashFlow.pack(side='bottom', padx=20, pady=10)
+        self.Price.pack(side='bottom', padx=20, pady=10)
 
 class ButtonWindow:
     def __init__(self, master, button_text, window_title):
@@ -44,6 +44,9 @@ class ButtonWindow:
 
     def pack(self, **kwargs):
         self.button.pack(**kwargs)
+
+    def grid(self, **kwargs):
+        self.button.grid(**kwargs)
 
     def create_toplevel(self):
         window = ctk.CTkToplevel(self.master)
