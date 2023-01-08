@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter
 import customtkinter as ctk
 from customtkinter import CTkFrame
+from functions import stockSearch
 
 search_term = ""
 
@@ -17,8 +18,12 @@ class MainPage(ctk.CTk):
         super().__init__()
         self.search_term = search_term
 
-        self.search_term_label = ctk.CTkLabel(self, text=f"What do you want to know about the ticker {self.search_term}?", font=('arial', 30))
+        self.search_term_label = ctk.CTkLabel(self, text=f"Analyzing...", font=('arial', 30))
         self.search_term_label.place(x=10, y=10)
+
+        self.CompanyName = stockSearch(self.search_term)
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel.place(x=10, y=50)
         #self.search_term.configure(font=('Arial',40))
 
         self.geometry("800x400")
