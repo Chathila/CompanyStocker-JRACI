@@ -26,7 +26,7 @@ def balancePull(ticker, period, years_of_data):
             'otherCurrentAssets', 'totalCurrentAssets', 'propertyPlantEquipmentNet', 'otherNonCurrentAssets',
             'totalNonCurrentAssets', 'totalAssets', 'accountPayables', 'otherCurrentLiabilities', 'deferredRevenue',
             'longTermDebt', 'totalCurrentLiabilities', 'otherNonCurrentLiabilities', 'totalNonCurrentLiabilities', 'totalLiabilities',
-            'totalStockholdersEquity', 'totalLiabilitiesAndStockholdersEquity']
+            'totalStockholdersEquity', 'totalLiabilitiesAndStockholdersEquity'] #
     balance_dict = {}
     
     for x in results:
