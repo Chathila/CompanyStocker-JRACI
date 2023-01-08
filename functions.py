@@ -42,7 +42,7 @@ def balancePull(ticker, years_of_data):
     balance_dict = {proper_keys[balance_keys.index(key)]: value for key, value in balance_dict.items()}
     return balance_dict
 
-def balancePull_final(ticker, years_of_data=5):
+def balancePull_final(ticker, years_of_data=3):
     url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
     results = requests.get(url).json()
     date_sorted={}
@@ -98,7 +98,7 @@ def cashflowPull(ticker, years_of_data):
     return cashflow_dict
 
 
-def cashflowPull_final(ticker, years_of_data=5):
+def cashflowPull_final(ticker, years_of_data=3):
     url = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
     results = requests.get(url).json()
     date_sorted={}
@@ -144,7 +144,7 @@ def incomePull(ticker, years_of_data):
     return income_dict
 
 
-def incomePull_final(ticker, years_of_data=5):
+def incomePull_final(ticker, years_of_data=3):
     url = f"https://financialmodelingprep.com/api/v3/income-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
     results = requests.get(url).json()
     date_sorted={}

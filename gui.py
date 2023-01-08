@@ -38,7 +38,7 @@ class MainPage(ctk.CTk):
         # self.search_term_label.place(x=15, y=10)
 
         self.CompanyName = stockSearch(self.search_term)
-        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 27))
         self.CompanyNameLabel.place(x=15, y=20)
         #self.search_term.configure(font=('Arial',40))
         self.ShowStock = stockPrice(self.search_term)
@@ -111,16 +111,18 @@ class BalanceSheetWindow(tkinter.Toplevel):
         self.balance_label.place(x=15, y=50)
 
         self.CompanyName = stockSearch(self.search_term)
-        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 27))
         self.CompanyNameLabel.place(x=15, y=10)
         
+        self.balancedata = incomePull_final(self.search_term)
+
         self.geometry("500x800")
 
         self.textFrame = CTkFrame(self, width = 400, height = 100)
         self.textFrame.place(relx=0.5, rely=0.47, anchor=tkinter.CENTER)
         self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 570)
         self.textbox.grid(row = 0, column=0)
-        self.textbox.insert("0.0", f"PLACEHOLDER") 
+        self.textbox.insert("0.0", f"{self.balancedata}") 
         self.text = self.textbox.get("0.0", "end") 
         self.textbox.configure(state="disabled")  
 
@@ -133,16 +135,18 @@ class CashFlowWindow(tkinter.Toplevel):
         self.cash_label.place(x=15, y=50)
 
         self.CompanyName = stockSearch(self.search_term)
-        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 27))
         self.CompanyNameLabel.place(x=15, y=10)
         
+        self.cashflowdata = incomePull_final(self.search_term)
+
         self.geometry("500x800")
 
         self.textFrame = CTkFrame(self, width = 400, height = 100)
         self.textFrame.place(relx=0.5, rely=0.47, anchor=tkinter.CENTER)
         self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 570)
         self.textbox.grid(row = 0, column=0)
-        self.textbox.insert("0.0", f"PLACEHOLDER") 
+        self.textbox.insert("0.0", f"{self.cashflowdata}") 
         self.text = self.textbox.get("0.0", "end") 
         self.textbox.configure(state="disabled") 
 
@@ -155,7 +159,7 @@ class IncomeStatementWindow(tkinter.Toplevel):
         self.income_label.place(x=15, y=50)
 
         self.CompanyName = stockSearch(self.search_term)
-        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 27))
         self.CompanyNameLabel.place(x=15, y=10)
         
         self.incomedata = incomePull_final(self.search_term)
