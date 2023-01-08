@@ -1,52 +1,9 @@
 '''
-main window with custom tkinter
-
-
 import tkinter
 import customtkinter as ctk
 
-ctk.set_appearance_mode("System")  # Modes: system (default), light, dark
-ctk.set_default_color_theme("dark-blue")  # Themes: blue (default), dark-blue, green
 
-root = ctk.CTk()  # create CTk window like you do with the Tk window
-root.geometry("500x700")
-root.title("Stock App")
-
-def open_new_window():
-    # Create a new window
-    new_window = ctk.CTkToplevel()
-    new_window.geometry("500x700")
-    new_window.title("New Window")
-
-    # Create a button to go back to the old window
-    def go_back_to_old_window():
-        # Reopen the old window
-        root.update()
-        root.deiconify()
-
-        # Close the new window
-        new_window.destroy()
-
-    GoBackButton = ctk.CTkButton(master=new_window, text="Go Back", command=go_back_to_old_window)
-    GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-    GoBackButton.configure(width=100, height=50)
-
-
-    # Display the new window
-    new_window.mainloop()
-
-# Use CTkButton instead of tkinter Button
-OpenNewWindowButton = ctk.CTkButton(master=root, text="Open New Window", command=open_new_window)
-OpenNewWindowButton.configure(width=200, height=50)
-OpenNewWindowButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-
-root.mainloop()
-'''
-
-import tkinter
-import customtkinter as ctk
-
-class ExampleApp(ctk.CTk):
+class SuperClass(ctk.CTk):
     def __init__(self):
         super().__init__()
 
@@ -76,5 +33,66 @@ class ExampleApp(ctk.CTk):
         GoBackButton.configure(width=100, height=50)
 
 
-app = ExampleApp()
+
+
+app = SuperClass()
+app.mainloop()
+'''
+import tkinter
+import tkinter
+import customtkinter as ctk
+
+class MainPage(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+
+        self.geometry("600x800")
+
+        # Create a button that opens a new window
+        self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
+        self.StockPrice.pack(side="top", padx=40, pady=40)
+
+        # Create a second button that opens a new window
+        self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Window 2")
+        self.BalanceSheet.pack(side="top", padx=40, pady=40)
+
+        self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Window 3")
+        self.CashFlow.pack(side="top", padx=40, pady=40)
+
+        self.Price = ButtonWindow(self, "Price", "Window 4")
+        self.Price.pack(side="top", padx=40, pady=40)
+
+class ButtonWindow:
+    def __init__(self, master, button_text, window_title):
+        self.master = master
+        self.button_text = button_text
+        self.window_title = window_title
+
+        self.button = ctk.CTkButton(self.master, text=self.button_text, command=self.create_toplevel)
+
+    def pack(self, **kwargs):
+        self.button.pack(**kwargs)
+
+    def create_toplevel(self):
+        window = ctk.CTkToplevel(self.master)
+        window.geometry("400x200")
+        window.title(self.window_title)
+
+        # create label on CTkToplevel window
+        label = ctk.CTkLabel(window, text=self.window_title)
+        label.pack(side="top", fill="both", expand=True, padx=40, pady=40)
+
+        def go_back_to_old_window():
+            # Reopen the old window
+            self.master.update()
+            self.master.deiconify()
+
+            # Close the new window
+            window.destroy()
+
+        GoBackButton = ctk.CTkButton(master=window, text="Go Back", command=go_back_to_old_window)
+        GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+        GoBackButton.configure(width=100, height=50)
+
+app = MainPage()
 app.mainloop()
