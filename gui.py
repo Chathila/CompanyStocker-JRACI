@@ -56,12 +56,11 @@ class MainPage(ctk.CTk):
         self.text = self.textbox.get("0.0", "end")  # get text from line 0 character 0 till the end
         self.textbox.configure(state="disabled")  # configure textbox to be read-only
         
-        
         self.geometry("500x800")
 
-        self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Window 2")
-        self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Window 3")
-        self.IncomeStatements = ButtonWindow(self, "Income Statements", "Window 4")
+        self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Balance Sheet")
+        self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Cash Flow Statements")
+        self.IncomeStatements = ButtonWindow(self, "Income Statements", "Income Statements")
 
         self.BalanceSheet.pack(side='bottom', padx=20, pady=20)
         self.CashFlow.pack(side='bottom', padx=20, pady=20)
@@ -73,7 +72,7 @@ class ButtonWindow:
         self.button_text = button_text
         self.window_title = window_title
 
-        self.button = ctk.CTkButton(self.master, text=self.button_text, command=self.create_toplevel)
+        self.button = ctk.CTkButton(self.master, text=self.button_text, command=self.create_toplevel, width=200, height=50, font=("arial", 15))
 
     def pack(self, **kwargs):
         self.button.pack(**kwargs)
