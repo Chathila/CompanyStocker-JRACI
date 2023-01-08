@@ -9,11 +9,11 @@ root.geometry("600x300")
 root.title("Stock App")
 
 def open_main_page():
-    #SearchTerm = SearchEntry.get()
+    SearchTerm = SearchEntry.get()
     root.destroy()
     main_page = MainPage()
     main_page.mainloop()
-
+    return SearchTerm
 
 #Creating the label with Investistock at the top
 NameFrame = CTkFrame(root, width = 800, height = 300, fg_color='#1F1F1F')
