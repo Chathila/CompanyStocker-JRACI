@@ -9,9 +9,11 @@ root.geometry("600x300")
 root.title("Stock App")
 
 def open_main_page():
-    root.withdraw()
+    #SearchTerm = SearchEntry.get()
+    root.destroy()
     main_page = MainPage()
     main_page.mainloop()
+
 
 #Creating the label with Investistock at the top
 NameFrame = CTkFrame(root, width = 800, height = 300, fg_color='#1F1F1F')
@@ -30,8 +32,6 @@ SearchEntry.place(x=100, rely=0.2)
 search_button = ctk.CTkButton(root, text="Search", command=open_main_page)
 search_button.place(relx=0.5, rely=0.57, anchor=tkinter.CENTER)
 search_button.configure(height=20, width=80)
-
-#def traversing_to_second_page():
 
 
 root.mainloop()
