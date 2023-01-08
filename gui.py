@@ -35,11 +35,11 @@ class MainPage(ctk.CTk):
         self.search_term = search_term
 
         self.search_term_label = ctk.CTkLabel(self, text=f"Analyzing...", font=('arial', 30))
-        self.search_term_label.place(x=10, y=10)
+        self.search_term_label.place(x=15, y=10)
 
         self.CompanyName = stockSearch(self.search_term)
         self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
-        self.CompanyNameLabel.place(x=10, y=50)
+        self.CompanyNameLabel.place(x=15, y=50)
         #self.search_term.configure(font=('Arial',40))
         
         self.com_description = profilePull(self.search_term)
