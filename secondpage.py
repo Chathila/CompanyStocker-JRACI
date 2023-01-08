@@ -2,13 +2,13 @@ import tkinter
 import tkinter
 import customtkinter as ctk
 
+
 class MainPage(ctk.CTk):
     def __init__(self):
         super().__init__()
 
         self.geometry("600x800")
 
-        # Create a button that opens a new window
         self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
         self.StockPrice.pack(side="top", padx=40, pady=40)
 
@@ -21,6 +21,7 @@ class MainPage(ctk.CTk):
 
         self.Price = ButtonWindow(self, "Price", "Window 4")
         self.Price.pack(side="top", padx=40, pady=40)
+
 
 class ButtonWindow:
     def __init__(self, master, button_text, window_title):
@@ -54,5 +55,5 @@ class ButtonWindow:
         GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
         GoBackButton.configure(width=100, height=50)
 
-app = MainPage()
-app.mainloop()
+#app = MainPage()
+#app.mainloop()
