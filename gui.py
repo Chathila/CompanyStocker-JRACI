@@ -2,7 +2,7 @@ from tkinter import *
 import tkinter
 import customtkinter as ctk
 from customtkinter import CTkFrame
-from functions import stockSearch, profilePull
+from functions import stockSearch, profilePull, stockPrice
 
 def split_into_lines(long_string, max_words_per_line):
     words = long_string.split()
@@ -34,13 +34,16 @@ class MainPage(ctk.CTk):
         super().__init__()
         self.search_term = search_term
 
-        self.search_term_label = ctk.CTkLabel(self, text=f"Analyzing...", font=('arial', 30))
-        self.search_term_label.place(x=15, y=10)
+        # self.search_term_label = ctk.CTkLabel(self, text=f"Analyzing...", font=('arial', 30))
+        # self.search_term_label.place(x=15, y=10)
 
         self.CompanyName = stockSearch(self.search_term)
         self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
-        self.CompanyNameLabel.place(x=15, y=50)
+        self.CompanyNameLabel.place(x=15, y=20)
         #self.search_term.configure(font=('Arial',40))
+        self.ShowStock = stockPrice(self.search_term)
+        self.ShowStockLabel = ctk.CTkLabel(self, text=f"Stock Price: ${self.ShowStock}USD", font=('arial', 20))
+        self.ShowStockLabel.place(x=15, y=65)
         
         self.com_description = profilePull(self.search_term)
         self.com_description = split_into_lines(self.com_description, 20)
@@ -51,17 +54,15 @@ class MainPage(ctk.CTk):
         self.textbox.grid(row = 0, column=0)
         self.textbox.insert("0.0", f"{self.com_description}")  # insert at line 0 character 0
         self.text = self.textbox.get("0.0", "end")  # get text from line 0 character 0 till the end
-
         self.textbox.configure(state="disabled")  # configure textbox to be read-only
+        
         
         self.geometry("500x800")
 
-        self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
         self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Window 2")
         self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Window 3")
         self.IncomeStatements = ButtonWindow(self, "Income Statements", "Window 4")
 
-        self.StockPrice.pack(side='bottom', padx=20, pady=20)
         self.BalanceSheet.pack(side='bottom', padx=20, pady=20)
         self.CashFlow.pack(side='bottom', padx=20, pady=20)
         self.IncomeStatements.pack(side='bottom', padx=20, pady=20)
@@ -81,9 +82,7 @@ class ButtonWindow:
         self.button.grid(**kwargs)
 
     def create_toplevel(self):
-        if self.button_text == "StockPrice":
-            window = StockPriceWindow(self.master, search_term)
-        elif self.button_text == "Balance Sheet":
+        if self.button_text == "Balance Sheet":
             window = BalanceSheetWindow(self.master, search_term)
         elif self.button_text == "Cash Flow Statements":
             window = CashFlowWindow(self.master, search_term)
@@ -104,15 +103,7 @@ class ButtonWindow:
         GoBackButton.place(relx=0.5, rely=0.9, anchor=tkinter.CENTER)
         GoBackButton.configure(width=100, height=50)
 
-class StockPriceWindow(tkinter.Toplevel):
-    def __init__(self, master, search_term):
-        super().__init__(master)
-        self.search_term = search_term
-        self.search_term_label = ctk.CTkLabel(self, text=f"Stock Price", font=('arial', 30))
-        self.search_term_label.place(x=15, y=10)
-        self.geometry("500x800")
         
-
 class BalanceSheetWindow(tkinter.Toplevel):
     def __init__(self, master, search_term):
         super().__init__(master)
