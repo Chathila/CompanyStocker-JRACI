@@ -1,6 +1,7 @@
 import tkinter
 import tkinter
 import customtkinter as ctk
+import firstpage as fp
 
 class MainPage(ctk.CTk):
     def __init__(self):
@@ -53,6 +54,11 @@ class ButtonWindow:
         GoBackButton = ctk.CTkButton(master=window, text="Go Back", command=go_back_to_old_window)
         GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
         GoBackButton.configure(width=100, height=50)
+
+fp.root.mainloop()
+search = ButtonWindow()
+
+
 
 app = MainPage()
 app.mainloop()
