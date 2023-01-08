@@ -53,13 +53,21 @@ def cashflowPull(ticker, period, years_of_data):
             'netChangeInCash', 'cashAtBeginningOfPeriod', 'cashAtEndOfPeriod', 'capitalExpenditure', 'operatingCashFlow', 
             'freeCashFlow']
     cashflow_dict = {}
-    proper_keys = []
 
-    for entry in results:
-        for key in entry:
+    proper_keys = ['Net Income', 'Depreciation and Amortization', 'Stock-Based Compensation', 'Deferred Income Tax', 'Change in Working Capital',
+    'Accounts Receivables', 'Inventory', 'Other Working Capital', 'Accounts Payable', 'Other Non Cash Items', 'Net Cash Provided by Operating Activities', 'Investments in Property Plant and Equipment',
+    'Acquisitions Net', 'Purchases of Investments', 'OtherInvestingActivities', 'Net Cash Used for Investing Activities', 'Debt Repayment',
+    'Common Stock Repurchased', 'Dividends Paid', 'Net Cash Used Provided by Financing Activities', 'Net Change in Cash', 'Cash at Beginning of Period',
+    'Cash At End of Period', 'Capital Expenditure', 'Operating Cash Flow', 'Free Cash Flow']
+
+    for x in results:
+        for key in x:
             if key in cashflow_keys:
                 cashflow_dict[key] = results[0][key]
+
     cashflow_dict = {proper_keys[cashflow_keys.index(key)]: value for key, value in cashflow_dict.items()}
+    
+    return cashflow_dict
 
 print(cashflowPull(ticker, "annual", 1))
 
