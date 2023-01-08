@@ -3,7 +3,7 @@ import json
 # 662675887f17041bd4ed6406d2fb2ff8
 
 ticker = "AAPL"
-type = "balance-sheet"
+period = 'annual'
 
 
 def stockPull(ticker):
@@ -28,19 +28,38 @@ def balancePull(ticker, period, years_of_data):
             'longTermDebt', 'totalCurrentLiabilities', 'otherNonCurrentLiabilities', 'totalNonCurrentLiabilities', 'totalLiabilities',
             'totalStockholdersEquity', 'totalLiabilitiesAndStockholdersEquity'] #
     balance_dict = {}
-    
-    for x in results:
-        for key in x:
+    proper_keys = ['Cash and Cash Equivalents', 'Short Term Investments', 'Net Receivables', 'Inventory', 'Other Current Assets', 'Total Current Assets',
+    'Property Plant Equipment Net', 'Other Non-Current Assets', 'Total Non-Current Assets', 'Total Assets', 'Account Payables', 'Other Current Liabilities', 'Deferred Revenue',
+    'Long Term Debt', 'Total Current Liabilities', 'Other Non-Current Liabilites', 'Total Non-Current Liabilites', 'Total Liabilites', "Total Stockholders' Equity",
+    "Total Liabilities and Stockholders' Equity"]
+
+    for entry in results:
+        for key in entry:
             if key in balance_keys:
                 balance_dict[key] = results[0][key]
+    
+    balance_dict = {proper_keys[balance_keys.index(key)]: value for key, value in balance_dict.items()}
     return balance_dict
     
 
 def cashflowPull(ticker, period, years_of_data):
-    url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
+    url = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
     results = requests.get(url).json()
-    cashflow_keys= ['']
-    return results[0]
+    cashflow_keys= ['netIncome', 'depreciationAndAmortization', 'stockBasedCompensation', 'deferredIncomeTax',
+            'changeInWorkingCapital', 'accountsReceivables', 'inventory', 'otherWorkingCapital', 'accountsPayable',
+            'otherNonCashItems', 'netCashProvidedByOperatingActivities', 'investmentsInPropertyPlantAndEquipment', 
+            'acquisitionsNet', 'purchasesOfInvestments', 'otherInvestingActivites', 'netCashUsedForInvestingActivites',
+            'debtRepayment', 'commonStockRepurchased', 'dividendsPaid', 'netCashUsedProvidedByFinancingActivities',
+            'netChangeInCash', 'cashAtBeginningOfPeriod', 'cashAtEndOfPeriod', 'capitalExpenditure', 'operatingCashFlow', 
+            'freeCashFlow']
+    cashflow_dict = {}
+    proper_keys = []
+
+    for entry in results:
+        for key in entry:
+            if key in cashflow_keys:
+                cashflow_dict[key] = results[0][key]
+    cashflow_dict = {proper_keys[cashflow_keys.index(key)]: value for key, value in cashflow_dict.items()}
 
 print(cashflowPull(ticker, "annual", 1))
 
