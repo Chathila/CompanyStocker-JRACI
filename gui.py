@@ -17,11 +17,11 @@ root.title("Stock App")
 
 
 def button_function():
-    # Create a new window
-    new_window = ctk.CTk()
+    # Create a new window using CTkToplevel
+    new_window = ctk.CTkToplevel()
     new_window.geometry("500x700")
     new_window.title("New Window")
-    root.destroy()
+
     # Display the new window
     new_window.mainloop()
 
