@@ -34,8 +34,15 @@ def balancePull(ticker, period, years_of_data):
             if key in balance_keys:
                 balance_dict[key] = results[0][key]
     return balance_dict
+    
 
-print(balancePull(ticker, "annual", 2))
+def cashflowPull(ticker, period, years_of_data):
+    url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
+    results = requests.get(url).json()
+    cashflow_keys= ['']
+    return results[0]
+
+print(cashflowPull(ticker, "annual", 1))
 
 def growthPull(type, ticker):
     url = f"https://financialmodelingprep.com/api/v3/{type}-statement-growth/{ticker}?apikey=662675887f17041bd4ed6406d2fb2ff8"
