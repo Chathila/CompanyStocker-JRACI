@@ -2,7 +2,7 @@ from tkinter import *
 import tkinter
 import customtkinter as ctk
 from customtkinter import CTkFrame
-from functions import stockSearch, profilePull, stockPrice
+from functions import stockSearch, profilePull, stockPrice, incomePull_final, balancePull_final, cashflowPull_final
 
 def split_into_lines(long_string, max_words_per_line):
     words = long_string.split()
@@ -158,13 +158,15 @@ class IncomeStatementWindow(tkinter.Toplevel):
         self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
         self.CompanyNameLabel.place(x=15, y=10)
         
+        self.incomedata = incomePull_final(self.search_term)
+
         self.geometry("500x800")
 
         self.textFrame = CTkFrame(self, width = 400, height = 100)
         self.textFrame.place(relx=0.5, rely=0.47, anchor=tkinter.CENTER)
         self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 570)
         self.textbox.grid(row = 0, column=0)
-        self.textbox.insert("0.0", f"PLACEHOLDER") 
+        self.textbox.insert("0.0", f"{self.incomedata}") 
         self.text = self.textbox.get("0.0", "end") 
         self.textbox.configure(state="disabled") 
         
