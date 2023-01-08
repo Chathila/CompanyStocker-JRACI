@@ -17,6 +17,9 @@ class MainPage(ctk.CTk):
         super().__init__()
         self.search_term = search_term
 
+        self.search_term_label = ctk.CTkLabel(self, text=f"Search term: {self.search_term}")
+        self.search_term_label.place(x=10, y=10)
+
         self.geometry("600x800")
         self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
         self.StockPrice.pack(side="top", padx=40, pady=40)
