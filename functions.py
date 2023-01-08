@@ -51,14 +51,14 @@ def balancePull_final(ticker, years_of_data):
         x = (balancePull(ticker, i+1))
         date_sorted[results[i]['date']] = x
     
-    fout = open('text.txt', 'w')
+    fout = open('balancetext.txt', 'w')
     for entries in date_sorted:
         fout.write("\n")
         fout.write(entries + "\n")
         for i in date_sorted[entries]:
             fout.write(i + ': ' + str(date_sorted[entries][i]) + '\n')
     fout.close()
-    fin = open('text.txt')
+    fin = open('balancetext.txt')
     li = fin.readlines()
     
     s = ''
@@ -106,17 +106,22 @@ def cashflowPull_final(ticker, years_of_data):
         x = (cashflowPull(ticker, i+1))
         date_sorted[results[i]['date']] = x
 
-        year = list(date_sorted.keys())      
-        sections = list(date_sorted.values())
+    fout = open('cashflowtext.txt', 'w')
+    for entries in date_sorted:
+        fout.write("\n")
+        fout.write(entries + "\n")
+        for i in date_sorted[entries]:
+            fout.write(i + ': ' + str(date_sorted[entries][i]) + '\n')
 
-        for entries in sections:
-            data_headers = list(entries.keys())
-            data = list(entries.values())
-
-        table = [data_headers, data]
-        table = list(map(list, zip(*table)))
-
-        print(tabulate.tabulate(table))
+    fout.close()
+    fin = open('cashflowtext.txt')
+    li = fin.readlines()
+    
+    s = ''
+    for i in li:
+        s += i
+    
+    return s
 
 
 def incomePull(ticker, years_of_data):
@@ -149,14 +154,22 @@ def incomePull_final(ticker, years_of_data):
         year = list(date_sorted.keys())      
         sections = list(date_sorted.values())
 
-        for entries in sections:
-            data_headers = list(entries.keys())
-            data = list(entries.values())
+    fout = open('incometext.txt', 'w')
+    for entries in date_sorted:
+        fout.write("\n")
+        fout.write(entries + "\n")
+        for i in date_sorted[entries]:
+            fout.write(i + ': ' + str(date_sorted[entries][i]) + '\n')
 
-        table = [data_headers, data]
-        table = list(map(list, zip(*table)))
-
-        print(tabulate.tabulate(table))
+    fout.close()
+    fin = open('incometext.txt')
+    li = fin.readlines()
+    
+    s = ''
+    for i in li:
+        s += i
+    
+    return s
 
 
 '''
