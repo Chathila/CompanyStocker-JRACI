@@ -2,8 +2,33 @@ from tkinter import *
 import tkinter
 import customtkinter as ctk
 from customtkinter import CTkFrame
-from functions import stockSearch
+from functions import stockSearch, profilePull
 
+def split_into_lines(long_string, max_words_per_line):
+    # Split the long string into a list of words
+    words = long_string.split()
+
+    # Initialize an empty list to store the lines
+    lines = []
+
+    # Initialize a temporary list to store the words for the current line
+    current_line = []
+
+    # Iterate through the list of words
+    for word in words:
+        # If the current line is already at the maximum number of words, add it to the list of lines and start a new line
+        if len(current_line) == max_words_per_line:
+            lines.append(current_line)
+            current_line = []
+
+        # Add the word to the current line
+        current_line.append(word)
+
+    # Add the final line to the list of lines
+    lines.append(current_line)
+
+    # Join the lines into a single string and return it
+    return '\n'.join([' '.join(line) for line in lines])
 search_term = ""
 
 def open_main_page():
@@ -25,19 +50,30 @@ class MainPage(ctk.CTk):
         self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
         self.CompanyNameLabel.place(x=10, y=50)
         #self.search_term.configure(font=('Arial',40))
+        
+        self.com_description = profilePull(self.search_term)
+        self.com_description = split_into_lines(self.com_description, 20)
+        
+        self.textFrame = CTkFrame(self, width = 400, height = 100)
+        self.textFrame.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
+        self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 400)
+        self.textbox.grid(row = 0, column=0)
+        self.textbox.insert("0.0", f"{self.com_description}")  # insert at line 0 character 0
+        self.text = self.textbox.get("0.0", "end")  # get text from line 0 character 0 till the end
 
-        self.geometry("800x400")
-
+        self.textbox.configure(state="disabled")  # configure textbox to be read-only
+        
+        self.geometry("500x800")
 
         self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
         self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Window 2")
         self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Window 3")
         self.Price = ButtonWindow(self, "Price", "Window 4")
 
-        self.StockPrice.pack(side='bottom', padx=20, pady=10)
-        self.BalanceSheet.pack(side='bottom', padx=20, pady=10)
-        self.CashFlow.pack(side='bottom', padx=20, pady=10)
-        self.Price.pack(side='bottom', padx=20, pady=10)
+        self.StockPrice.pack(side='bottom', padx=20, pady=20)
+        self.BalanceSheet.pack(side='bottom', padx=20, pady=20)
+        self.CashFlow.pack(side='bottom', padx=20, pady=20)
+        self.Price.pack(side='bottom', padx=20, pady=20)
 
 class ButtonWindow:
     def __init__(self, master, button_text, window_title):
@@ -99,3 +135,4 @@ search_button.configure(height=20, width=80)
 
 
 root.mainloop()
+       
