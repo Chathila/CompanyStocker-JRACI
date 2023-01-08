@@ -1,14 +1,23 @@
-import tkinter
+from tkinter import *
 import tkinter
 import customtkinter as ctk
+from customtkinter import CTkFrame
 
+search_term = ""
+
+def open_main_page():
+    global search_term
+    search_term = SearchEntry.get()
+    root.destroy()
+    main_page = MainPage(search_term)
+    main_page.mainloop()
 
 class MainPage(ctk.CTk):
-    def __init__(self):
+    def __init__(self, search_term):
         super().__init__()
+        self.search_term = search_term
 
         self.geometry("600x800")
-
         self.StockPrice = ButtonWindow(self, "StockPrice", "Window 1")
         self.StockPrice.pack(side="top", padx=40, pady=40)
 
@@ -21,7 +30,6 @@ class MainPage(ctk.CTk):
 
         self.Price = ButtonWindow(self, "Price", "Window 4")
         self.Price.pack(side="top", padx=40, pady=40)
-
 
 class ButtonWindow:
     def __init__(self, master, button_text, window_title):
@@ -55,5 +63,28 @@ class ButtonWindow:
         GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
         GoBackButton.configure(width=100, height=50)
 
-#app = MainPage()
-#app.mainloop()
+root = ctk.CTk()
+root.geometry("600x300")
+root.title("Stock App")
+
+
+#Creating the label with Investistock at the top
+NameFrame = CTkFrame(root, width = 800, height = 300, fg_color='#1F1F1F')
+NameFrame.place(relx=0.5, y=0, anchor=tkinter.CENTER)
+NameLabel = ctk.CTkLabel(master=root, text="CompanyStocker", bg_color='#1F1F1F', font=('Arial',40))
+NameLabel.place(x=150, y=20)
+
+#Creating search bar 
+NameFrame = CTkFrame(root, width = 400, height = 100)
+NameFrame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+SearchEntry = ctk.CTkEntry(NameFrame, placeholder_text="Enter Company Ticket Symbol", width=200)
+SearchEntry.pack(side="top", padx=40, pady=50)
+SearchEntry.place(x=100, rely=0.2)
+
+#Adding search button
+search_button = ctk.CTkButton(root, text="Search", command=open_main_page)
+search_button.place(relx=0.5, rely=0.57, anchor=tkinter.CENTER)
+search_button.configure(height=20, width=80)
+
+
+root.mainloop()
