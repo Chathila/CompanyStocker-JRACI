@@ -50,13 +50,16 @@ def balancePull_final(ticker, years_of_data):
     for i in list(range(years_of_data)):
         x = (balancePull(ticker, i+1))
         date_sorted[results[i]['date']] = x
-        year = list(date_sorted.keys())[i]
-        data = list(date_sorted.values())[i]
+        year = list(date_sorted.keys())        
+        sections = list(date_sorted.values())[i]
 
-        table = [year, data]
+
+
+        table = [year, sections]
         table = list(map(list, zip(*table)))
 
-        print(tabulate.tabulate(table, headers = ['YEAR', 'INFO']))
+        #print(tabulate.tabulate(table, headers = ['YEAR', 'INFO']))
+        print(sections)
 
 print(balancePull_final('AAPL', 3))
 
@@ -127,12 +130,12 @@ def incomePull_final(ticker, years_of_data):
        date_sorted[results[i]['date']] = x
     return date_sorted
 
-
+'''
 def growthPull(type, ticker):
     url = f"https://financialmodelingprep.com/api/v3/{type}-statement-growth/{ticker}?apikey=be7330815374d314431e8fd46431980f"
     results = requests.get(url)
     return results.json()
-
+'''
 
 def pricetargetPull(ticker):
     url = f"https://financialmodelingprep.com/api/v4/price-target?symbol={ticker}&apikey=be7330815374d314431e8fd46431980f"
@@ -162,3 +165,8 @@ def profilePull(ticker):
     description = results[0]['description']
     return description
 
+def stockPrice(ticker):
+    url = f"https://financialmodelingprep.com/api/v3/quote-short/{ticker}?apikey=be7330815374d314431e8fd46431980f"
+    results = requests.get(url).json()
+    price = results[0]['price']
+    return price
