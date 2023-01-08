@@ -8,11 +8,12 @@ import plotly.express as px
 import datapane as dp
 
 def grapher(name):
-    tick = yf.download(name, period='MAX', Interval='1d')
+    tick = yf.download(name, period='MAX')  # remove the Interval argument
     tick_chart = px.line(tick['Close'], 
                            title='{0} Daily Close Price'.format(name), 
                            color_discrete_map={'Close':'green'}, 
                            width=800, height=800)
     tick_chart.show()
+    print(tick_chart.show().get('url'))
 
-#print(grapher("AAPL"))
+(grapher("AAPL"))

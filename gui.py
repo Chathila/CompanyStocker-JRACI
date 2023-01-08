@@ -58,6 +58,7 @@ class MainPage(ctk.CTk):
         
         self.geometry("500x800")
 
+
         self.BalanceSheet = ButtonWindow(self, "Balance Sheet", "Balance Sheet")
         self.CashFlow = ButtonWindow(self, "Cash Flow Statements", "Cash Flow Statements")
         self.IncomeStatements = ButtonWindow(self, "Income Statements", "Income Statements")
@@ -65,6 +66,10 @@ class MainPage(ctk.CTk):
         self.BalanceSheet.pack(side='bottom', padx=20, pady=20)
         self.CashFlow.pack(side='bottom', padx=20, pady=20)
         self.IncomeStatements.pack(side='bottom', padx=20, pady=20)
+
+#class Chart:
+#    def __init__(self):
+#        self.chart_button = ctk.CTkButton(self, text = "Show Graph", command=lambda: grapher(f"{search_term}"), width=200, height=50, font=("arial", 15))
 
 class ButtonWindow:
     def __init__(self, master, button_text, window_title):
@@ -114,7 +119,7 @@ class BalanceSheetWindow(tkinter.Toplevel):
         self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 27))
         self.CompanyNameLabel.place(x=15, y=10)
         
-        self.balancedata = incomePull_final(self.search_term)
+        self.balancedata = balancePull_final(self.search_term)
 
         self.geometry("500x800")
 
@@ -138,7 +143,7 @@ class CashFlowWindow(tkinter.Toplevel):
         self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 27))
         self.CompanyNameLabel.place(x=15, y=10)
         
-        self.cashflowdata = incomePull_final(self.search_term)
+        self.cashflowdata = cashflowPull_final(self.search_term)
 
         self.geometry("500x800")
 
@@ -173,6 +178,7 @@ class IncomeStatementWindow(tkinter.Toplevel):
         self.textbox.insert("0.0", f"{self.incomedata}") 
         self.text = self.textbox.get("0.0", "end") 
         self.textbox.configure(state="disabled") 
+
         
 
 root = ctk.CTk()

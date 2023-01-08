@@ -1,48 +1,48 @@
 
-2022-05-31
-Revenue: 46710000000
-Cost of Revenue: 25231000000
-Gross Profit: 21479000000
-Research and Development Expenses: 0.0
-Operating Expenses: 14804000000
-Cost and Expenses: 40035000000
-Interest Income: 0.0
-Interest Expense: -205000000
-Operating Income: 6675000000
-Income Before Tax: 6651000000
-Income Tax Expense: 605000000
-Net Income: 6046000000
-Eps: 3.83
-Epsdiluted: 3.75
+2022-09-24
+Revenue: 394328000000
+Cost of Revenue: 223546000000
+Gross Profit: 170782000000
+Research and Development Expenses: 26251000000
+Operating Expenses: 51345000000
+Cost and Expenses: 274891000000
+Interest Income: 2825000000
+Interest Expense: 2931000000
+Operating Income: 119437000000
+Income Before Tax: 119103000000
+Income Tax Expense: 19300000000
+Net Income: 99803000000
+Eps: 6.15
+Epsdiluted: 6.11
 
-2021-05-31
-Revenue: 44538000000
-Cost of Revenue: 24576000000
-Gross Profit: 19962000000
-Research and Development Expenses: 0.0
-Operating Expenses: 13025000000
-Cost and Expenses: 37601000000
-Interest Income: 0.0
-Interest Expense: 0.0
-Operating Income: 6937000000
-Income Before Tax: 6661000000
-Income Tax Expense: 934000000
-Net Income: 5727000000
-Eps: 3.64
-Epsdiluted: 3.56
+2021-09-25
+Revenue: 365817000000
+Cost of Revenue: 212981000000
+Gross Profit: 152836000000
+Research and Development Expenses: 21914000000
+Operating Expenses: 43887000000
+Cost and Expenses: 256868000000
+Interest Income: 2843000000
+Interest Expense: 2645000000
+Operating Income: 108949000000
+Income Before Tax: 109207000000
+Income Tax Expense: 14527000000
+Net Income: 94680000000
+Eps: 5.67
+Epsdiluted: 5.61
 
-2020-05-31
-Revenue: 37403000000
-Cost of Revenue: 21162000000
-Gross Profit: 16241000000
-Research and Development Expenses: 0.0
-Operating Expenses: 13126000000
-Cost and Expenses: 34288000000
-Interest Income: 0.0
-Interest Expense: 0.0
-Operating Income: 3115000000
-Income Before Tax: 2887000000
-Income Tax Expense: 348000000
-Net Income: 2539000000
-Eps: 1.63
-Epsdiluted: 1.6
+2020-09-26
+Revenue: 274515000000
+Cost of Revenue: 169559000000
+Gross Profit: 104956000000
+Research and Development Expenses: 18752000000
+Operating Expenses: 38668000000
+Cost and Expenses: 208227000000
+Interest Income: 3763000000
+Interest Expense: 2873000000
+Operating Income: 66288000000
+Income Before Tax: 67091000000
+Income Tax Expense: 9680000000
+Net Income: 57411000000
+Eps: 3.31
+Epsdiluted: 3.28

@@ -1,0 +1,66 @@
+
+2022-09-24
+Cash and Cash Equivalents: 23646000000
+Short Term Investments: 24658000000
+Net Receivables: 60932000000
+Inventory: 4946000000
+Other Current Assets: 21223000000
+Total Current Assets: 135405000000
+Property Plant Equipment Net: 42117000000
+Other Non-Current Assets: 54428000000
+Total Non-Current Assets: 217350000000
+Total Assets: 352755000000
+Account Payables: 64115000000
+Deferred Revenue: 7912000000
+Other Current Liabilities: 60845000000
+Total Current Liabilities: 153982000000
+Long Term Debt: 98959000000
+Other Non-Current Liabilites: 49142000000
+Total Non-Current Liabilites: 148101000000
+Total Liabilites: 302083000000
+Total Stockholders' Equity: 50672000000
+Total Liabilities and Stockholders' Equity: 352755000000
+
+2021-09-25
+Cash and Cash Equivalents: 34940000000
+Short Term Investments: 27699000000
+Net Receivables: 51506000000
+Inventory: 6580000000
+Other Current Assets: 14111000000
+Total Current Assets: 134836000000
+Property Plant Equipment Net: 39440000000
+Other Non-Current Assets: 48849000000
+Total Non-Current Assets: 216166000000
+Total Assets: 351002000000
+Account Payables: 54763000000
+Deferred Revenue: 7612000000
+Other Current Liabilities: 47493000000
+Total Current Liabilities: 125481000000
+Long Term Debt: 109106000000
+Other Non-Current Liabilites: 53325000000
+Total Non-Current Liabilites: 162431000000
+Total Liabilites: 287912000000
+Total Stockholders' Equity: 63090000000
+Total Liabilities and Stockholders' Equity: 351002000000
+
+2020-09-26
+Cash and Cash Equivalents: 38016000000
+Short Term Investments: 52927000000
+Net Receivables: 37445000000
+Inventory: 4061000000
+Other Current Assets: 11264000000
+Total Current Assets: 143713000000
+Property Plant Equipment Net: 36766000000
+Other Non-Current Assets: 42522000000
+Total Non-Current Assets: 180175000000
+Total Assets: 323888000000
+Account Payables: 42296000000
+Deferred Revenue: 6643000000
+Other Current Liabilities: 42684000000
+Total Current Liabilities: 105392000000
+Long Term Debt: 98667000000
+Other Non-Current Liabilites: 54490000000
+Total Non-Current Liabilites: 153157000000
+Total Liabilites: 258549000000
+Total Stockholders' Equity: 65339000000
+Total Liabilities and Stockholders' Equity: 323888000000
