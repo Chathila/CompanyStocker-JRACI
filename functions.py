@@ -1,8 +1,7 @@
 import requests
+import tabulate
 import json
 # 662675887f17041bd4ed6406d2fb2ff8
-
-ticker = "TSLA"
 
 
 def stockPull(ticker):
@@ -25,38 +24,42 @@ def balancePull(ticker, years_of_data):
             'otherCurrentAssets', 'totalCurrentAssets', 'propertyPlantEquipmentNet', 'otherNonCurrentAssets',
             'totalNonCurrentAssets', 'totalAssets', 'accountPayables', 'otherCurrentLiabilities', 'deferredRevenue',
             'longTermDebt', 'totalCurrentLiabilities', 'otherNonCurrentLiabilities', 'totalNonCurrentLiabilities', 'totalLiabilities',
-            'totalStockholdersEquity', 'totalLiabilitiesAndStockholdersEquity'] #
+            'totalStockholdersEquity', 'totalLiabilitiesAndStockholdersEquity']
     balance_dict = {}
-    date_sorted={}
     proper_keys = ['Cash and Cash Equivalents', 'Short Term Investments', 'Net Receivables', 'Inventory', 
             'Other Current Assets', 'Total Current Assets', 'Property Plant Equipment Net', 'Other Non-Current Assets', 
             'Total Non-Current Assets', 'Total Assets', 'Account Payables', 'Other Current Liabilities', 'Deferred Revenue',
             'Long Term Debt', 'Total Current Liabilities', 'Other Non-Current Liabilites', 'Total Non-Current Liabilites', 
             'Total Liabilites', "Total Stockholders' Equity", "Total Liabilities and Stockholders' Equity"]
     
-    count = 0
     for entry in results:
         for key in entry:
             if key in balance_keys:
                 for count in range(years_of_data):
                     balance_dict[key] = results[count][key]
-            count += 1
+                count += 1
 
     balance_dict = {proper_keys[balance_keys.index(key)]: value for key, value in balance_dict.items()}
-    #date_sorted[results[count]['date']] = balance_dict
-
     return balance_dict
 
 def balancePull_final(ticker, years_of_data):
     url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
     results = requests.get(url).json()
     date_sorted={}
+    
     for i in list(range(years_of_data)):
-       x = (balancePull(ticker, i+1))
-       date_sorted[results[i]['date']] = x
-    return date_sorted
+        x = (balancePull(ticker, i+1))
+        date_sorted[results[i]['date']] = x
+        year = list(date_sorted.keys())[i]
+        data = list(date_sorted.values())[i]
 
-#print(balancePull_final('AAPL', 3))
+        table = [year, data]
+        table = list(map(list, zip(*table)))
+
+        print(tabulate.tabulate(table, headers = ['YEAR', 'INFO']))
+
+print(balancePull_final('AAPL', 3))
+
 
 def cashflowPull(ticker, years_of_data):
     url = f"https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?Limit=[{years_of_data}&Period=annual&apikey=be7330815374d314431e8fd46431980f"
