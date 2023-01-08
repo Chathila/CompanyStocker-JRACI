@@ -52,9 +52,9 @@ class MainPage(ctk.CTk):
         self.textFrame.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
         self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 400)
         self.textbox.grid(row = 0, column=0)
-        self.textbox.insert("0.0", f"{self.com_description}")  # insert at line 0 character 0
-        self.text = self.textbox.get("0.0", "end")  # get text from line 0 character 0 till the end
-        self.textbox.configure(state="disabled")  # configure textbox to be read-only
+        self.textbox.insert("0.0", f"{self.com_description}") 
+        self.text = self.textbox.get("0.0", "end") 
+        self.textbox.configure(state="disabled")  
         
         self.geometry("500x800")
 
@@ -107,27 +107,66 @@ class BalanceSheetWindow(tkinter.Toplevel):
     def __init__(self, master, search_term):
         super().__init__(master)
         self.search_term = search_term
-        self.search_term_label = ctk.CTkLabel(self, text=f"Balance Sheet", font=('arial', 30))
-        self.search_term_label.place(x=15, y=10)
+        self.balance_label = ctk.CTkLabel(self, text=f"Balance Sheet", font=('arial', 20))
+        self.balance_label.place(x=15, y=50)
+
+        self.CompanyName = stockSearch(self.search_term)
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel.place(x=15, y=10)
+        
         self.geometry("500x800")
+
+        self.textFrame = CTkFrame(self, width = 400, height = 100)
+        self.textFrame.place(relx=0.5, rely=0.47, anchor=tkinter.CENTER)
+        self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 570)
+        self.textbox.grid(row = 0, column=0)
+        self.textbox.insert("0.0", f"PLACEHOLDER") 
+        self.text = self.textbox.get("0.0", "end") 
+        self.textbox.configure(state="disabled")  
 
 
 class CashFlowWindow(tkinter.Toplevel):
     def __init__(self, master, search_term):
         super().__init__(master)
         self.search_term = search_term
-        self.search_term_label = ctk.CTkLabel(self, text=f"Cash Flow Statements", font=('arial', 30))
-        self.search_term_label.place(x=15, y=10)
+        self.cash_label = ctk.CTkLabel(self, text=f"Cash Flow Statement", font=('arial', 20))
+        self.cash_label.place(x=15, y=50)
+
+        self.CompanyName = stockSearch(self.search_term)
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel.place(x=15, y=10)
+        
         self.geometry("500x800")
+
+        self.textFrame = CTkFrame(self, width = 400, height = 100)
+        self.textFrame.place(relx=0.5, rely=0.47, anchor=tkinter.CENTER)
+        self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 570)
+        self.textbox.grid(row = 0, column=0)
+        self.textbox.insert("0.0", f"PLACEHOLDER") 
+        self.text = self.textbox.get("0.0", "end") 
+        self.textbox.configure(state="disabled") 
 
 
 class IncomeStatementWindow(tkinter.Toplevel):
     def __init__(self, master, search_term):
         super().__init__(master)
         self.search_term = search_term
-        self.search_term_label = ctk.CTkLabel(self, text=f"Income Statements", font=('arial', 30))
-        self.search_term_label.place(x=15, y=10)
+        self.income_label = ctk.CTkLabel(self, text=f"Income Statement", font=('arial', 20))
+        self.income_label.place(x=15, y=50)
+
+        self.CompanyName = stockSearch(self.search_term)
+        self.CompanyNameLabel = ctk.CTkLabel(self, text=f"{self.CompanyName}", font=('arial', 30))
+        self.CompanyNameLabel.place(x=15, y=10)
+        
         self.geometry("500x800")
+
+        self.textFrame = CTkFrame(self, width = 400, height = 100)
+        self.textFrame.place(relx=0.5, rely=0.47, anchor=tkinter.CENTER)
+        self.textbox = ctk.CTkTextbox(self.textFrame, width=450, height = 570)
+        self.textbox.grid(row = 0, column=0)
+        self.textbox.insert("0.0", f"PLACEHOLDER") 
+        self.text = self.textbox.get("0.0", "end") 
+        self.textbox.configure(state="disabled") 
         
 
 root = ctk.CTk()
