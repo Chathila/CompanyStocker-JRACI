@@ -3,7 +3,7 @@ import json
 # 662675887f17041bd4ed6406d2fb2ff8
 
 ticker = "AAPL"
-type = "annual"
+type = "balance-sheet"
 
 
 def stockPull(ticker):
@@ -11,11 +11,33 @@ def stockPull(ticker):
     results = requests.get(url)
     return results.json()
 
+def getfirstkey(results, index):
+    keys = index
+    key = index
+    for keys in results:
+        for key in keys:
+            print(key)
 
-def statementPull(type, ticker, period, years_of_data):
-    url = f"https://financialmodelingprep.com/api/v3/{type}-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
-    results = requests.get(url)
-    return results.json()
+
+def balancePull(ticker, period, years_of_data):
+    url = f"https://financialmodelingprep.com/api/v3/balance-sheet-statement/{ticker}?Limit=[{years_of_data}&Period={period}&apikey=662675887f17041bd4ed6406d2fb2ff8"
+    results = requests.get(url).json()
+    balance_keys = ['cashAndCashEquivalents', 'shortTermInvestments', 'netReceivables', 'inventory', 
+            'otherCurrentAssets', 'totalCurrentAssets', 'propertyPlantEquipmentNet', 'otherNonCurrentAssets',
+            'totalNonCurrentAssets', 'totalAssets', 'accountPayables', 'otherCurrentLiabilities', 'deferredRevenue',
+            'longTermDebt', 'totalCurrentLiabilities', 'otherNonCurrentLiabilities', 'totalNonCurrentLiabilities', 'totalLiabilities',
+            'totalStockholdersEquity', 'totalLiabilitiesAndStockholdersEquity']
+    balance_dict = []
+    
+    x=0
+    for x in results:
+        for key in x:
+            if key in balance_keys:
+                balance_dict[key]=results[x][key]
+                x += 1
+    return balance_dict
+
+print(balancePull(ticker, "annual", 2))
 
 def growthPull(type, ticker):
     url = f"https://financialmodelingprep.com/api/v3/{type}-statement-growth/{ticker}?apikey=662675887f17041bd4ed6406d2fb2ff8"
@@ -38,8 +60,11 @@ def historicemployeePull(ticker):
 
 def stockSearch(ticker, limit, exchange):
     url = f"https://financialmodelingprep.com/api/v3/search-ticker?query={ticker}&limit={limit}&exchange={exchange}&apikey=662675887f17041bd4ed6406d2fb2ff8"
-    results = requests.get(url)
-    return results.json()
+    results = requests.get(url).json()
+    symbol = results[0]['symbol']
+    name = results[0]['name']
+    final = symbol + ': ' + name
+    return final
     
 
 def profilePull(ticker):
@@ -48,4 +73,3 @@ def profilePull(ticker):
     description = results[0]['description']
     return description
 
-print(profilePull(ticker))
