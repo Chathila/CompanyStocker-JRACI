@@ -81,14 +81,11 @@ class ButtonWindow:
         self.button.grid(**kwargs)
 
     def create_toplevel(self):
-        window = ctk.CTkToplevel(self.master)
-        window.geometry("400x200")
-        window.title(self.window_title)
-
-        # create label on CTkToplevel window
-        label = ctk.CTkLabel(window, text=self.window_title)
-        label.pack(side="top", fill="both", expand=True, padx=40, pady=40)
-
+        if self.button_text == "StockPrice":
+            window = StockPriceWindow(self.master, search_term)
+        else:
+            window = ctk.CTkToplevel(self.master)
+            window.title(self.window_title)
         def go_back_to_old_window():
             # Reopen the old window
             self.master.update()
@@ -100,6 +97,18 @@ class ButtonWindow:
         GoBackButton = ctk.CTkButton(master=window, text="Go Back", command=go_back_to_old_window)
         GoBackButton.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
         GoBackButton.configure(width=100, height=50)
+
+
+class StockPriceWindow(tkinter.Toplevel):
+    def __init__(self, master, search_term):
+        super().__init__(master)
+        self.search_term = search_term
+        self.search_term_label = ctk.CTkLabel(self, text=f"Analyzing...", font=('arial', 30))
+        self.search_term_label.place(x=15, y=10)
+
+
+
+
 
 root = ctk.CTk()
 root.geometry("600x300")
@@ -126,4 +135,3 @@ search_button.configure(height=20, width=80)
 
 
 root.mainloop()
-       
