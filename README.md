@@ -4,21 +4,21 @@ This is CompanyStocker, a simple interactive application demonstrating the creat
 
 Running Instructions
 
-To execute our program, ensure the your device has the following libraries downloaded
+1. To execute our program, ensure the your device has the following libraries downloaded
 
-Tkinter
-Custom Tkinter
-Requests
+        Tkinter
+        Custom Tkinter
+        Requests
 
-If these libraries are not available on your device run the bellow mentioned commands on the terminal of your device
+2. If these libraries are not available on your device run the bellow mentioned commands on the terminal of your device
 
-To download Tkinter - pip install tk or pip3 install tk 
-To download Custom Tkinter - pip install customtkinter or pip3 install customtkinter 
-To download requests - pip install requests or pip3 install requests
+        To download Tkinter - pip install tk or pip3 install tk 
+        To download Custom Tkinter - pip install customtkinter or pip3 install customtkinter 
+        To download requests - pip install requests or pip3 install requests
 
-After ensuring these libraries are downloaded on your device, Clone the repository on your device.
+3. After ensuring these libraries are downloaded on your device, Clone the repository on your device.
 
-Run the Python program called CompanyStocker.py
+4. Run the Python program called CompanyStocker.py
 
-The program will open the first page where the user can enter the ticker symbol of the desired stock and press on search. Afterwards the user will be presented with a brief description about the stock and the real time price of the stock. Along with that the user will have access to the Income statement, Cashflow statement and the Balance sheet of the stock.
+5. The program will open the first page where the user can enter the ticker symbol of the desired stock and press on search. Afterwards the user will be              presented with a brief description about the stock and the real time price of the stock. Along with that the user will have access to the Income statement, Cashflow statement and the Balance sheet of the stock.
 
