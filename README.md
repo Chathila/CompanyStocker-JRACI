@@ -18,7 +18,11 @@ Running Instructions
 
 3. After ensuring these libraries are downloaded on your device, Clone the repository on your device.
 
-4. Run the Python program called CompanyStocker.py
+        git clone git@github.com:Chathila/CompanyStocker-JRACI.git
+
+4. Open the cloned repository and Run the Python program called CompanyStocker.py.(Run the bellow command on the terminal)
+
+        python3 CompanyStocker.py
 
 5. The program will open the first page where the user can enter the ticker symbol of the desired stock and press on search. Afterwards the user will be              presented with a brief description about the stock and the real time price of the stock. Along with that the user will have access to the Income statement, Cashflow statement and the Balance sheet of the stock.
 
